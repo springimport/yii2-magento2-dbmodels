@@ -1,0 +1,21 @@
+{
+    "name": "springimport/yii2-magento2-dbmodels",
+    "description": "DataBase models for magento 2",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","magento2"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mykhailo Shatilov",
+            "email": "mykhailo@springimport.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SpringImport\\yii2\\magento2\\dbmodels\\": ""
+        }
+    }
+}
