@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SpringImport\\yii2\\magento2\\dbmodels\\": ""
+            "SpringImport\\yii2\\magento2\\dbmodels\\": "src\\"
         }
     }
 }
