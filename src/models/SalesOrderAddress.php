@@ -38,7 +38,6 @@ use Yii;
  */
 class SalesOrderAddress extends \yii\db\ActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -61,15 +60,11 @@ class SalesOrderAddress extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['parent_id', 'customer_address_id', 'quote_address_id', 'region_id',
-                    'customer_id', 'vat_is_valid', 'vat_request_success'], 'integer'],
+            [['parent_id', 'customer_address_id', 'quote_address_id', 'region_id', 'customer_id', 'vat_is_valid', 'vat_request_success'], 'integer'],
             [['vat_id', 'vat_request_id', 'vat_request_date'], 'string'],
-            [['fax', 'region', 'postcode', 'lastname', 'street', 'city', 'email',
-                    'telephone', 'firstname', 'address_type', 'prefix', 'middlename',
-                    'suffix', 'company'], 'string', 'max' => 255],
+            [['fax', 'region', 'postcode', 'lastname', 'street', 'city', 'email', 'telephone', 'firstname', 'address_type', 'prefix', 'middlename', 'suffix', 'company'], 'string', 'max' => 255],
             [['country_id'], 'string', 'max' => 2],
-            [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => SalesOrder::className(),
-                'targetAttribute' => ['parent_id' => 'entity_id']],
+            [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => SalesOrder::className(), 'targetAttribute' => ['parent_id' => 'entity_id']],
         ];
     }
 
@@ -81,8 +76,7 @@ class SalesOrderAddress extends \yii\db\ActiveRecord
         return [
             'entity_id' => Yii::t('magento2-dbmodels', 'Entity Id'),
             'parent_id' => Yii::t('magento2-dbmodels', 'Parent Id'),
-            'customer_address_id' => Yii::t('magento2-dbmodels',
-            'Customer Address Id'),
+            'customer_address_id' => Yii::t('magento2-dbmodels', 'Customer Address Id'),
             'quote_address_id' => Yii::t('magento2-dbmodels', 'Quote Address Id'),
             'region_id' => Yii::t('magento2-dbmodels', 'Region Id'),
             'customer_id' => Yii::t('magento2-dbmodels', 'Customer Id'),
@@ -105,8 +99,7 @@ class SalesOrderAddress extends \yii\db\ActiveRecord
             'vat_is_valid' => Yii::t('magento2-dbmodels', 'Vat Is Valid'),
             'vat_request_id' => Yii::t('magento2-dbmodels', 'Vat Request Id'),
             'vat_request_date' => Yii::t('magento2-dbmodels', 'Vat Request Date'),
-            'vat_request_success' => Yii::t('magento2-dbmodels',
-            'Vat Request Success'),
+            'vat_request_success' => Yii::t('magento2-dbmodels', 'Vat Request Success'),
         ];
     }
 
@@ -115,7 +108,6 @@ class SalesOrderAddress extends \yii\db\ActiveRecord
      */
     public function getParent()
     {
-        return $this->hasOne(SalesOrder::className(),
-        ['entity_id' => 'parent_id']);
+        return $this->hasOne(SalesOrder::className(), ['entity_id' => 'parent_id']);
     }
 }

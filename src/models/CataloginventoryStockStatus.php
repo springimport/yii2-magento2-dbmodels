@@ -15,7 +15,6 @@ use Yii;
  */
 class CataloginventoryStockStatus extends \yii\db\ActiveRecord
 {
-
     /**
      * @inheritdoc
      */

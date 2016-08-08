@@ -15,7 +15,6 @@ use Yii;
  */
 class CataloginventoryStock extends \yii\db\ActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -61,7 +60,6 @@ class CataloginventoryStock extends \yii\db\ActiveRecord
      */
     public function getCataloginventoryStockItems()
     {
-        return $this->hasMany(CataloginventoryStockItem::className(),
-        ['stock_id' => 'stock_id']);
+        return $this->hasMany(CataloginventoryStockItem::className(), ['stock_id' => 'stock_id']);
     }
 }

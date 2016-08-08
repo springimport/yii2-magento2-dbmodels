@@ -33,7 +33,6 @@ use Yii;
  */
 class AdminUser extends \yii\db\ActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -57,8 +56,7 @@ class AdminUser extends \yii\db\ActiveRecord
     {
         return [
             [['password'], 'required'],
-            [['created', 'modified', 'logdate', 'rp_token_created_at', 'first_failure',
-                    'lock_expires'], 'safe'],
+            [['created', 'modified', 'logdate', 'rp_token_created_at', 'first_failure', 'lock_expires'], 'safe'],
             [['lognum', 'reload_acl_flag', 'is_active', 'failures_num'], 'integer'],
             [['extra', 'rp_token'], 'string'],
             [['firstname', 'lastname'], 'string', 'max' => 32],
@@ -89,16 +87,12 @@ class AdminUser extends \yii\db\ActiveRecord
             'reload_acl_flag' => Yii::t('magento2-dbmodels', 'Reload ACL'),
             'is_active' => Yii::t('magento2-dbmodels', 'User Is Active'),
             'extra' => Yii::t('magento2-dbmodels', 'User Extra Data'),
-            'rp_token' => Yii::t('magento2-dbmodels',
-            'Reset Password Link Token'),
-            'rp_token_created_at' => Yii::t('magento2-dbmodels',
-            'Reset Password Link Token Creation Date'),
-            'interface_locale' => Yii::t('magento2-dbmodels',
-            'Backend interface locale'),
+            'rp_token' => Yii::t('magento2-dbmodels', 'Reset Password Link Token'),
+            'rp_token_created_at' => Yii::t('magento2-dbmodels', 'Reset Password Link Token Creation Date'),
+            'interface_locale' => Yii::t('magento2-dbmodels', 'Backend interface locale'),
             'failures_num' => Yii::t('magento2-dbmodels', 'Failure Number'),
             'first_failure' => Yii::t('magento2-dbmodels', 'First Failure'),
-            'lock_expires' => Yii::t('magento2-dbmodels',
-            'Expiration Lock Dates'),
+            'lock_expires' => Yii::t('magento2-dbmodels', 'Expiration Lock Dates'),
         ];
     }
 
@@ -107,8 +101,7 @@ class AdminUser extends \yii\db\ActiveRecord
      */
     public function getAdminPasswords()
     {
-        return $this->hasMany(AdminPasswords::className(),
-        ['user_id' => 'user_id']);
+        return $this->hasMany(AdminPasswords::className(), ['user_id' => 'user_id']);
     }
 
     /**

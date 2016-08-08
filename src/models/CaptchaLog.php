@@ -14,7 +14,6 @@ use Yii;
  */
 class CaptchaLog extends \yii\db\ActiveRecord
 {
-
     /**
      * @inheritdoc
      */

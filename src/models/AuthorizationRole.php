@@ -20,7 +20,6 @@ use Yii;
  */
 class AuthorizationRole extends \yii\db\ActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -72,7 +71,6 @@ class AuthorizationRole extends \yii\db\ActiveRecord
      */
     public function getAuthorizationRules()
     {
-        return $this->hasMany(AuthorizationRule::className(),
-        ['role_id' => 'role_id']);
+        return $this->hasMany(AuthorizationRule::className(), ['role_id' => 'role_id']);
     }
 }

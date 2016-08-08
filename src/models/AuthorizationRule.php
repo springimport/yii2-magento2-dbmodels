@@ -17,7 +17,6 @@ use Yii;
  */
 class AuthorizationRule extends \yii\db\ActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -44,8 +43,7 @@ class AuthorizationRule extends \yii\db\ActiveRecord
             [['resource_id'], 'string', 'max' => 255],
             [['privileges'], 'string', 'max' => 20],
             [['permission'], 'string', 'max' => 10],
-            [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => AuthorizationRole::className(),
-                'targetAttribute' => ['role_id' => 'role_id']],
+            [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => AuthorizationRole::className(), 'targetAttribute' => ['role_id' => 'role_id']],
         ];
     }
 
@@ -68,7 +66,6 @@ class AuthorizationRule extends \yii\db\ActiveRecord
      */
     public function getRole()
     {
-        return $this->hasOne(AuthorizationRole::className(),
-        ['role_id' => 'role_id']);
+        return $this->hasOne(AuthorizationRole::className(), ['role_id' => 'role_id']);
     }
 }

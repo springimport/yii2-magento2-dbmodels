@@ -17,7 +17,6 @@ use Yii;
  */
 class AdminPasswords extends \yii\db\ActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -42,8 +41,7 @@ class AdminPasswords extends \yii\db\ActiveRecord
         return [
             [['user_id', 'expires', 'last_updated'], 'integer'],
             [['password_hash'], 'string', 'max' => 100],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => AdminUser::className(),
-                'targetAttribute' => ['user_id' => 'user_id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => AdminUser::className(), 'targetAttribute' => ['user_id' => 'user_id']],
         ];
     }
 

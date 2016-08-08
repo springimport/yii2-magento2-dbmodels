@@ -15,7 +15,6 @@ use Yii;
  */
 class Cache extends \yii\db\ActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -54,8 +53,7 @@ class Cache extends \yii\db\ActiveRecord
             'id' => Yii::t('magento2-dbmodels', 'Cache Id'),
             'data' => Yii::t('magento2-dbmodels', 'Cache Data'),
             'create_time' => Yii::t('magento2-dbmodels', 'Cache Creation Time'),
-            'update_time' => Yii::t('magento2-dbmodels',
-            'Time of Cache Updating'),
+            'update_time' => Yii::t('magento2-dbmodels', 'Time of Cache Updating'),
             'expire_time' => Yii::t('magento2-dbmodels', 'Cache Expiration Time'),
         ];
     }
