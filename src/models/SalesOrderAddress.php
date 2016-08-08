@@ -38,8 +38,8 @@ use Yii;
  */
 class SalesOrderAddress extends \yii\db\ActiveRecord
 {
-    const ADDRESS_BILLING_TYPE  = 'billing';
-    const ADDRESS_SHIPPING_TYPE = 'shipping';
+    const BILLING_ADDRESS  = 'billing';
+    const SHIPPING_ADDRESS = 'shipping';
 
     /**
      * @inheritdoc
