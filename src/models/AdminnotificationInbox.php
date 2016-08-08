@@ -18,6 +18,7 @@ use Yii;
  */
 class AdminnotificationInbox extends \yii\db\ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -61,7 +62,8 @@ class AdminnotificationInbox extends \yii\db\ActiveRecord
             'description' => Yii::t('magento2-dbmodels', 'Description'),
             'url' => Yii::t('magento2-dbmodels', 'Url'),
             'is_read' => Yii::t('magento2-dbmodels', 'Flag if notification read'),
-            'is_remove' => Yii::t('magento2-dbmodels', 'Flag if notification might be removed'),
+            'is_remove' => Yii::t('magento2-dbmodels',
+            'Flag if notification might be removed'),
         ];
     }
 }

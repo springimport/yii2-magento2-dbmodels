@@ -12,6 +12,7 @@ use Yii;
  */
 class CacheTag extends \yii\db\ActiveRecord
 {
+
     /**
      * @inheritdoc
      */

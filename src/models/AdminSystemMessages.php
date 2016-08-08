@@ -13,6 +13,7 @@ use Yii;
  */
 class AdminSystemMessages extends \yii\db\ActiveRecord
 {
+
     /**
      * @inheritdoc
      */

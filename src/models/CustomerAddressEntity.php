@@ -47,6 +47,7 @@ use Yii;
  */
 class CustomerAddressEntity extends \yii\db\ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -69,14 +70,19 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['parent_id', 'is_active', 'region_id', 'vat_is_valid', 'vat_request_success'], 'integer'],
+            [['parent_id', 'is_active', 'region_id', 'vat_is_valid', 'vat_request_success'],
+                'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['city', 'country_id', 'firstname', 'lastname', 'street', 'telephone'], 'required'],
+            [['city', 'country_id', 'firstname', 'lastname', 'street', 'telephone'],
+                'required'],
             [['street'], 'string'],
             [['increment_id'], 'string', 'max' => 50],
-            [['city', 'company', 'country_id', 'fax', 'firstname', 'lastname', 'middlename', 'postcode', 'region', 'telephone', 'vat_id', 'vat_request_date', 'vat_request_id'], 'string', 'max' => 255],
+            [['city', 'company', 'country_id', 'fax', 'firstname', 'lastname', 'middlename',
+                    'postcode', 'region', 'telephone', 'vat_id', 'vat_request_date',
+                    'vat_request_id'], 'string', 'max' => 255],
             [['prefix', 'suffix'], 'string', 'max' => 40],
-            [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => CustomerEntity::className(), 'targetAttribute' => ['parent_id' => 'entity_id']],
+            [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => CustomerEntity::className(),
+                'targetAttribute' => ['parent_id' => 'entity_id']],
         ];
     }
 
@@ -108,9 +114,12 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
             'telephone' => Yii::t('magento2-dbmodels', 'Phone Number'),
             'vat_id' => Yii::t('magento2-dbmodels', 'VAT number'),
             'vat_is_valid' => Yii::t('magento2-dbmodels', 'VAT number validity'),
-            'vat_request_date' => Yii::t('magento2-dbmodels', 'VAT number validation request date'),
-            'vat_request_id' => Yii::t('magento2-dbmodels', 'VAT number validation request ID'),
-            'vat_request_success' => Yii::t('magento2-dbmodels', 'VAT number validation request success'),
+            'vat_request_date' => Yii::t('magento2-dbmodels',
+            'VAT number validation request date'),
+            'vat_request_id' => Yii::t('magento2-dbmodels',
+            'VAT number validation request ID'),
+            'vat_request_success' => Yii::t('magento2-dbmodels',
+            'VAT number validation request success'),
         ];
     }
 
@@ -119,7 +128,8 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
      */
     public function getParent()
     {
-        return $this->hasOne(CustomerEntity::className(), ['entity_id' => 'parent_id']);
+        return $this->hasOne(CustomerEntity::className(),
+        ['entity_id' => 'parent_id']);
     }
 
     /**
@@ -127,7 +137,8 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
      */
     public function getCustomerAddressEntityDatetimes()
     {
-        return $this->hasMany(CustomerAddressEntityDatetime::className(), ['entity_id' => 'entity_id']);
+        return $this->hasMany(CustomerAddressEntityDatetime::className(),
+        ['entity_id' => 'entity_id']);
     }
 
     /**
@@ -135,7 +146,9 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
      */
     public function getAttributes()
     {
-        return $this->hasMany(EavAttribute::className(), ['attribute_id' => 'attribute_id'])->viaTable('{{%customer_address_entity_datetime}}', ['entity_id' => 'entity_id']);
+        return $this->hasMany(EavAttribute::className(),
+        ['attribute_id' => 'attribute_id'])->viaTable('{{%customer_address_entity_datetime}}',
+        ['entity_id' => 'entity_id']);
     }
 
     /**
@@ -143,7 +156,8 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
      */
     public function getCustomerAddressEntityDecimals()
     {
-        return $this->hasMany(CustomerAddressEntityDecimal::className(), ['entity_id' => 'entity_id']);
+        return $this->hasMany(CustomerAddressEntityDecimal::className(),
+        ['entity_id' => 'entity_id']);
     }
 
     /**
@@ -151,7 +165,9 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
      */
     public function getAttributes0()
     {
-        return $this->hasMany(EavAttribute::className(), ['attribute_id' => 'attribute_id'])->viaTable('{{%customer_address_entity_decimal}}', ['entity_id' => 'entity_id']);
+        return $this->hasMany(EavAttribute::className(),
+        ['attribute_id' => 'attribute_id'])->viaTable('{{%customer_address_entity_decimal}}',
+        ['entity_id' => 'entity_id']);
     }
 
     /**
@@ -159,7 +175,8 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
      */
     public function getCustomerAddressEntityInts()
     {
-        return $this->hasMany(CustomerAddressEntityInt::className(), ['entity_id' => 'entity_id']);
+        return $this->hasMany(CustomerAddressEntityInt::className(),
+        ['entity_id' => 'entity_id']);
     }
 
     /**
@@ -167,7 +184,9 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
      */
     public function getAttributes1()
     {
-        return $this->hasMany(EavAttribute::className(), ['attribute_id' => 'attribute_id'])->viaTable('{{%customer_address_entity_int}}', ['entity_id' => 'entity_id']);
+        return $this->hasMany(EavAttribute::className(),
+        ['attribute_id' => 'attribute_id'])->viaTable('{{%customer_address_entity_int}}',
+        ['entity_id' => 'entity_id']);
     }
 
     /**
@@ -175,7 +194,8 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
      */
     public function getCustomerAddressEntityTexts()
     {
-        return $this->hasMany(CustomerAddressEntityText::className(), ['entity_id' => 'entity_id']);
+        return $this->hasMany(CustomerAddressEntityText::className(),
+        ['entity_id' => 'entity_id']);
     }
 
     /**
@@ -183,7 +203,9 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
      */
     public function getAttributes2()
     {
-        return $this->hasMany(EavAttribute::className(), ['attribute_id' => 'attribute_id'])->viaTable('{{%customer_address_entity_text}}', ['entity_id' => 'entity_id']);
+        return $this->hasMany(EavAttribute::className(),
+        ['attribute_id' => 'attribute_id'])->viaTable('{{%customer_address_entity_text}}',
+        ['entity_id' => 'entity_id']);
     }
 
     /**
@@ -191,7 +213,8 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
      */
     public function getCustomerAddressEntityVarchars()
     {
-        return $this->hasMany(CustomerAddressEntityVarchar::className(), ['entity_id' => 'entity_id']);
+        return $this->hasMany(CustomerAddressEntityVarchar::className(),
+        ['entity_id' => 'entity_id']);
     }
 
     /**
@@ -199,6 +222,8 @@ class CustomerAddressEntity extends \yii\db\ActiveRecord
      */
     public function getAttributes3()
     {
-        return $this->hasMany(EavAttribute::className(), ['attribute_id' => 'attribute_id'])->viaTable('{{%customer_address_entity_varchar}}', ['entity_id' => 'entity_id']);
+        return $this->hasMany(EavAttribute::className(),
+        ['attribute_id' => 'attribute_id'])->viaTable('{{%customer_address_entity_varchar}}',
+        ['entity_id' => 'entity_id']);
     }
 }
