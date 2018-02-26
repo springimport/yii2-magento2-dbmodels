@@ -60,6 +60,6 @@ class CataloginventoryStock extends \yii\db\ActiveRecord
      */
     public function getCataloginventoryStockItems()
     {
-        return $this->hasMany(CataloginventoryStockItem::className(), ['stock_id' => 'stock_id']);
+        return $this->hasMany(CataloginventoryStockItem::class, ['stock_id' => 'stock_id']);
     }
 }

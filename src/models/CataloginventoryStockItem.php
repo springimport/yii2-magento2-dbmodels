@@ -65,8 +65,8 @@ class CataloginventoryStockItem extends \yii\db\ActiveRecord
             [['qty', 'min_qty', 'min_sale_qty', 'max_sale_qty', 'notify_stock_qty', 'qty_increments'], 'number'],
             [['low_stock_date'], 'safe'],
             [['product_id', 'website_id'], 'unique', 'targetAttribute' => ['product_id', 'website_id'], 'message' => 'The combination of Product Id and Is Divided into Multiple Boxes for Shipping has already been taken.'],
-            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => CatalogProductEntity::className(), 'targetAttribute' => ['product_id' => 'entity_id']],
-            [['stock_id'], 'exist', 'skipOnError' => true, 'targetClass' => CataloginventoryStock::className(), 'targetAttribute' => ['stock_id' => 'stock_id']],
+            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => CatalogProductEntity::class, 'targetAttribute' => ['product_id' => 'entity_id']],
+            [['stock_id'], 'exist', 'skipOnError' => true, 'targetClass' => CataloginventoryStock::class, 'targetAttribute' => ['stock_id' => 'stock_id']],
         ];
     }
 
@@ -110,7 +110,7 @@ class CataloginventoryStockItem extends \yii\db\ActiveRecord
      */
     public function getProduct()
     {
-        return $this->hasOne(CatalogProductEntity::className(), ['entity_id' => 'product_id']);
+        return $this->hasOne(CatalogProductEntity::class, ['entity_id' => 'product_id']);
     }
 
     /**
@@ -118,6 +118,6 @@ class CataloginventoryStockItem extends \yii\db\ActiveRecord
      */
     public function getStock()
     {
-        return $this->hasOne(CataloginventoryStock::className(), ['stock_id' => 'stock_id']);
+        return $this->hasOne(CataloginventoryStock::class, ['stock_id' => 'stock_id']);
     }
 }

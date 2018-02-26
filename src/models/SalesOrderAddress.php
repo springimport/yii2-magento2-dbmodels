@@ -67,7 +67,7 @@ class SalesOrderAddress extends \yii\db\ActiveRecord
             [['vat_id', 'vat_request_id', 'vat_request_date'], 'string'],
             [['fax', 'region', 'postcode', 'lastname', 'street', 'city', 'email', 'telephone', 'firstname', 'address_type', 'prefix', 'middlename', 'suffix', 'company'], 'string', 'max' => 255],
             [['country_id'], 'string', 'max' => 2],
-            [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => SalesOrder::className(), 'targetAttribute' => ['parent_id' => 'entity_id']],
+            [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => SalesOrder::class, 'targetAttribute' => ['parent_id' => 'entity_id']],
         ];
     }
 
@@ -111,6 +111,6 @@ class SalesOrderAddress extends \yii\db\ActiveRecord
      */
     public function getParent()
     {
-        return $this->hasOne(SalesOrder::className(), ['entity_id' => 'parent_id']);
+        return $this->hasOne(SalesOrder::class, ['entity_id' => 'parent_id']);
     }
 }

@@ -193,8 +193,8 @@ class SalesOrder extends \yii\db\ActiveRecord
             [['applied_rule_ids', 'customer_email', 'customer_firstname', 'customer_lastname', 'customer_middlename'], 'string', 'max' => 128],
             [['base_currency_code', 'global_currency_code', 'order_currency_code', 'store_currency_code'], 'string', 'max' => 3],
             [['increment_id', 'store_id'], 'unique', 'targetAttribute' => ['increment_id', 'store_id'], 'message' => 'The combination of Store Id and Increment Id has already been taken.'],
-            [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => CustomerEntity::className(), 'targetAttribute' => ['customer_id' => 'entity_id']],
-            [['store_id'], 'exist', 'skipOnError' => true, 'targetClass' => Store::className(), 'targetAttribute' => ['store_id' => 'store_id']],
+            [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => CustomerEntity::class, 'targetAttribute' => ['customer_id' => 'entity_id']],
+            [['store_id'], 'exist', 'skipOnError' => true, 'targetClass' => Store::class, 'targetAttribute' => ['store_id' => 'store_id']],
         ];
     }
 
@@ -350,7 +350,7 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getDownloadableLinkPurchaseds()
     {
-        return $this->hasMany(DownloadableLinkPurchased::className(), ['order_id' => 'entity_id']);
+        return $this->hasMany(DownloadableLinkPurchased::class, ['order_id' => 'entity_id']);
     }
 
     /**
@@ -358,7 +358,7 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getPaypalBillingAgreementOrders()
     {
-        return $this->hasMany(PaypalBillingAgreementOrder::className(), ['order_id' => 'entity_id']);
+        return $this->hasMany(PaypalBillingAgreementOrder::class, ['order_id' => 'entity_id']);
     }
 
     /**
@@ -366,7 +366,7 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getAgreements()
     {
-        return $this->hasMany(PaypalBillingAgreement::className(), ['agreement_id' => 'agreement_id'])->viaTable('{{%paypal_billing_agreement_order}}', ['order_id' => 'entity_id']);
+        return $this->hasMany(PaypalBillingAgreement::class, ['agreement_id' => 'agreement_id'])->viaTable('{{%paypal_billing_agreement_order}}', ['order_id' => 'entity_id']);
     }
 
     /**
@@ -374,7 +374,7 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getSalesCreditmemos()
     {
-        return $this->hasMany(SalesCreditmemo::className(), ['order_id' => 'entity_id']);
+        return $this->hasMany(SalesCreditmemo::class, ['order_id' => 'entity_id']);
     }
 
     /**
@@ -382,7 +382,7 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getSalesInvoices()
     {
-        return $this->hasMany(SalesInvoice::className(), ['order_id' => 'entity_id']);
+        return $this->hasMany(SalesInvoice::class, ['order_id' => 'entity_id']);
     }
 
     /**
@@ -390,7 +390,7 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getCustomer()
     {
-        return $this->hasOne(CustomerEntity::className(), ['entity_id' => 'customer_id']);
+        return $this->hasOne(CustomerEntity::class, ['entity_id' => 'customer_id']);
     }
 
     /**
@@ -398,7 +398,7 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getStore()
     {
-        return $this->hasOne(Store::className(), ['store_id' => 'store_id']);
+        return $this->hasOne(Store::class, ['store_id' => 'store_id']);
     }
 
     /**
@@ -406,7 +406,7 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getSalesOrderAddresses()
     {
-        return $this->hasMany(SalesOrderAddress::className(), ['parent_id' => 'entity_id']);
+        return $this->hasMany(SalesOrderAddress::class, ['parent_id' => 'entity_id']);
     }
 
     /**
@@ -414,7 +414,7 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getSalesOrderItems()
     {
-        return $this->hasMany(SalesOrderItem::className(), ['order_id' => 'entity_id']);
+        return $this->hasMany(SalesOrderItem::class, ['order_id' => 'entity_id']);
     }
 
     /**
@@ -422,7 +422,7 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getSalesOrderPayments()
     {
-        return $this->hasMany(SalesOrderPayment::className(), ['parent_id' => 'entity_id']);
+        return $this->hasMany(SalesOrderPayment::class, ['parent_id' => 'entity_id']);
     }
 
     /**
@@ -430,7 +430,7 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getSalesOrderStatusHistories()
     {
-        return $this->hasMany(SalesOrderStatusHistory::className(), ['parent_id' => 'entity_id']);
+        return $this->hasMany(SalesOrderStatusHistory::class, ['parent_id' => 'entity_id']);
     }
 
     /**
@@ -438,7 +438,7 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getSalesPaymentTransactions()
     {
-        return $this->hasMany(SalesPaymentTransaction::className(), ['order_id' => 'entity_id']);
+        return $this->hasMany(SalesPaymentTransaction::class, ['order_id' => 'entity_id']);
     }
 
     /**
@@ -446,6 +446,6 @@ class SalesOrder extends \yii\db\ActiveRecord
      */
     public function getSalesShipments()
     {
-        return $this->hasMany(SalesShipment::className(), ['order_id' => 'entity_id']);
+        return $this->hasMany(SalesShipment::class, ['order_id' => 'entity_id']);
     }
 }

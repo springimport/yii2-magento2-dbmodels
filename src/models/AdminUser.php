@@ -101,7 +101,7 @@ class AdminUser extends \yii\db\ActiveRecord
      */
     public function getAdminPasswords()
     {
-        return $this->hasMany(AdminPasswords::className(), ['user_id' => 'user_id']);
+        return $this->hasMany(AdminPasswords::class, ['user_id' => 'user_id']);
     }
 
     /**
@@ -109,7 +109,7 @@ class AdminUser extends \yii\db\ActiveRecord
      */
     public function getOauthTokens()
     {
-        return $this->hasMany(OauthToken::className(), ['admin_id' => 'user_id']);
+        return $this->hasMany(OauthToken::class, ['admin_id' => 'user_id']);
     }
 
     /**
@@ -117,6 +117,6 @@ class AdminUser extends \yii\db\ActiveRecord
      */
     public function getUiBookmarks()
     {
-        return $this->hasMany(UiBookmark::className(), ['user_id' => 'user_id']);
+        return $this->hasMany(UiBookmark::class, ['user_id' => 'user_id']);
     }
 }
